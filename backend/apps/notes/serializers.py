@@ -15,13 +15,13 @@ class NoteSerializer(serializers.ModelSerializer):
     def validate_title(self, value):
         # Проверка наличия заголовка
         if not value.strip():
-            raise serializers.ValidateError('Заголовок не может быть пустым')
+            raise serializers.ValidationError('Заголовок не может быть пустым')
         return escape(value.strip())
     
     def validate_content(self, value):
         # Проверка наличия контента
         if not value.strip():
-            raise serializers.ValidateError('Содержание не может быть пустым')
+            raise serializers.ValidationError('Содержание не может быть пустым')
         return escape(value.strip())
     
 
